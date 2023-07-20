@@ -25,16 +25,20 @@ function populateForm() {
     const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if(savedData) {
-        refs.email.value = savedData.email;
-        refs.textarea.value = savedData.message;
+        if(savedData.email) {
+            refs.email.value = savedData.email;
+        }
+
+        if(savedData.message) {
+            refs.textarea.value = savedData.message;
+        }
     }
 }
 
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    const submitedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    console.log(submitedData);
+    console.log({email: evt.currentTarget.elements.email.value, message: evt.currentTarget.elements.message.value});
     localStorage.removeItem(STORAGE_KEY);
 
     evt.currentTarget.reset();
