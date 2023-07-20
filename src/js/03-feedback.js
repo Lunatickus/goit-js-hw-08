@@ -38,7 +38,8 @@ function populateForm() {
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    console.log({email: evt.currentTarget.elements.email.value, message: evt.currentTarget.elements.message.value});
+    // console.log({email: evt.currentTarget.elements.email.value, message: evt.currentTarget.elements.message.value});
+    console.log({email: refs.email.value, message: refs.textarea.value});
     localStorage.removeItem(STORAGE_KEY);
 
     evt.currentTarget.reset();
